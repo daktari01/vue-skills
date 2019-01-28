@@ -12,7 +12,10 @@
 
       <ul>
         <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
-          <li v-for="(data, index) in skills" :key='index+0'>{{ data.skill }}</li>
+          <li v-for="(data, index) in skills" :key='index+0'>
+            {{ data.skill }}
+            <i class="fa fa-minus-circle" v-on:click="remove(index)"></i>
+          </li>
         </transition-group>
       </ul>
 
@@ -43,7 +46,9 @@ export default {
           console.log('Not valid');
         }
       });
-
+    },
+    remove(id) {
+      this.skills.splice(id,1);
     }
   }
 }
@@ -53,6 +58,7 @@ export default {
 <style scoped>
 
   @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css";
+  @import "https://use.fontawesome.com/releases/v5.0.7/css/all.css";
 
   .holder {
     background: #fff;
@@ -117,6 +123,11 @@ export default {
     100% {
       transform: scale(1);
     }
+  }
+
+  i {
+    float: right;
+    cursor: pointer;
   }
 
 </style>

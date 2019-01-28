@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <Skills msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
+    </nav>
+
+    <router-view />
   </div>
 </template>
 
@@ -24,7 +29,20 @@ export default {
     display: grid;
     grid-template-rows: auto;
     justify-items: center;
-    align-items: center;
+    padding-top: 50px;
+  }
+  nav {
+    padding: 20px 20px 20px 0;
+  }
+
+  nav a {
+    padding: 10px;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 3px;
+    color: rgb(0, 110, 255);
+    font-weight: bold;
+    margin-right: 15px;
   }
   body, html {
     margin: 0;
